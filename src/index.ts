@@ -1,19 +1,20 @@
-const { existsSync, mkdirSync, readdirSync } = require("fs");
-const path = require("path");
-const { uploadToCdn } = require("../tos");
-const compressing = require("compressing");
-const { extract } = require("./extract.js");
-const {
+import { existsSync, mkdirSync, readdirSync } from "fs";
+import path from "path";
+// import { uploadToCdn } from "../tos";
+import compressing from "compressing";
+import { extract } from "./extract.js";
+import {
   getPaths,
   localDistDir,
   isDebugReg,
   outputDir,
   systemArch,
-} = require("./var");
-const { copySync, removeSync } = require("fs-extra");
+} from "./var";
+
+import { copySync, removeSync } from "fs-extra";
 
 const outputFileNameList = readdirSync(outputDir);
-const uploadSymbols = async (arch) => {
+const uploadSymbols = async (arch: string) => {
   const {
     localZipDir,
     localDebugDir,
@@ -42,10 +43,10 @@ const uploadSymbols = async (arch) => {
     mkdirSync(localZipDir);
   }
   await compressing.zip.compressDir(localDebugDir, localZipDebugSymbolPathName);
-  await uploadToCdn(
-    localZipDebugSymbolPathName,
-    path.join(uploadSymbolsAroundBasePath, `${uploadZipFileBasePath}-debug.zip`)
-  );
+  // await uploadToCdn(
+  //   localZipDebugSymbolPathName,
+  //   path.join(uploadSymbolsAroundBasePath, `${uploadZipFileBasePath}-debug.zip`)
+  // );
   await extract(debugSymbolsNameAndPath, arch);
   return debugSymbolsNameAndPath;
 };

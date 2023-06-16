@@ -1,4 +1,4 @@
-const path = require("path");
+import path from "path";
 
 const localDistDir = path.join(__dirname, "dist");
 
@@ -17,12 +17,7 @@ const commands = {
 };
 const systemArch = ["arm64", "x64", "ia32"];
 
-module.exports.localDistDir = localDistDir;
-module.exports.systemArch = systemArch;
-module.exports.commands = commands;
-module.exports.outputDir = outputDir;
-module.exports.isDebugReg = isDebugReg;
-module.exports.getPaths = (arch) => {
+const getPaths = (arch: string) => {
   const localPADir = path.join(localDistDir, `${process.platform}-${arch}`);
   const localZipDir = path.join(localPADir, "zip");
   const localDebugDir = path.join(localPADir, "debug");
@@ -34,3 +29,5 @@ module.exports.getPaths = (arch) => {
     localDebugDir,
   };
 };
+
+export { localDistDir, systemArch, commands, outputDir, isDebugReg, getPaths };

@@ -2,11 +2,11 @@
   "compilerOptions": {
     "module": "esnext",
     "strict": true,
-    "jsx": "react",
+    "lib": ["esnext"],
     "typeRoots": ["node_modules/@types"],
     "baseUrl": ".",
-    "noUnusedLocals": false,
-    "noUnusedParameters": false
+    "moduleResolution": "nodenext",
+    "allowSyntheticDefaultImports": true
   },
   "include": ["src"]
 }
