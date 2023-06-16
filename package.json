@@ -1,0 +1,23 @@
+{
+  "name": "dump-analysis",
+  "version": "1.0.0",
+  "description": " dump-analysis",
+  "main": "index.js",
+  "scripts": {
+    "analysis": "node ./src/index.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/menglingyu659/crash-analysis.git"
+  },
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/menglingyu659/crash-analysis/issues"
+  },
+  "homepage": "https://github.com/menglingyu659/crash-analysis#readme",
+  "dependencies": {
+    "compressing": "^1.9.0",
+    "fs-extra": "^11.1.1"
+  }
+}
